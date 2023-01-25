@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ef16f098327243f1b9033adfe795fd72" Name="Diagram1">
+        <EntityTypeShape EntityType="GorselModel.doktor" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.Hasta" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.ilac" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.ilacTuru" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.Kisi" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.klinik" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.Kullanici" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.randevu" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.Rol" Width="1.5" PointX="5.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.Sonislemhasta" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GorselModel.sonSecimHasta" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="GorselModel.FK_doktor_klinik" ManuallyRouted="false" />
+        <AssociationConnector Association="GorselModel.FK_randevu_doktor" ManuallyRouted="false" />
+        <AssociationConnector Association="GorselModel.FK_randevu_Hasta" ManuallyRouted="false" />
+        <AssociationConnector Association="GorselModel.FK_ilac_ilacTuru" ManuallyRouted="false" />
+        <AssociationConnector Association="GorselModel.FK_Kullanici_Kisi1" ManuallyRouted="false" />
+        <AssociationConnector Association="GorselModel.FK_Kullanici_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

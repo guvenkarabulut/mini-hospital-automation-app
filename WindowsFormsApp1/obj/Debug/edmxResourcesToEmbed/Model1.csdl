@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GorselModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="doktor">
+    <Key>
+      <PropertyRef Name="doktorNo" />
+    </Key>
+    <Property Name="doktorNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="doktorAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doktorSoyAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doktorTcNO" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="doktorTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doktorDtarihi" Type="DateTime" Precision="3" />
+    <Property Name="doktorDyeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doktorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doktorCinsiyet" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="klinikNo" Type="Int32" />
+    <Property Name="klinikAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="klinik" Relationship="Self.FK_doktor_klinik" FromRole="doktor" ToRole="klinik" />
+    <NavigationProperty Name="randevu" Relationship="Self.FK_randevu_doktor" FromRole="doktor" ToRole="randevu" />
+  </EntityType>
+  <EntityType Name="Hasta">
+    <Key>
+      <PropertyRef Name="hastaNo" />
+    </Key>
+    <Property Name="hastaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hastaTcNo" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="hastaAdi" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="hastoSoyadi" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="hastaTel" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="hastaCinsiyet" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="hastaDogumYeri" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="hastaAnneAdi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="hastaBabaAdi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="hastaAdres" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="hastaKanGrubu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="hastaMedeniHali" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="randevu" Relationship="Self.FK_randevu_Hasta" FromRole="Hasta" ToRole="randevu" />
+  </EntityType>
+  <EntityType Name="ilac">
+    <Key>
+      <PropertyRef Name="ilacNo" />
+    </Key>
+    <Property Name="ilacNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ilacAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ilacTuruNo" Type="Int32" />
+    <NavigationProperty Name="ilacTuru" Relationship="Self.FK_ilac_ilacTuru" FromRole="ilac" ToRole="ilacTuru" />
+  </EntityType>
+  <EntityType Name="ilacTuru">
+    <Key>
+      <PropertyRef Name="ilacTuruNo" />
+    </Key>
+    <Property Name="ilacTuruNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ilacTuru1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ilac" Relationship="Self.FK_ilac_ilacTuru" FromRole="ilacTuru" ToRole="ilac" />
+  </EntityType>
+  <EntityType Name="Kisi">
+    <Key>
+      <PropertyRef Name="kisiId" />
+    </Key>
+    <Property Name="kisiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="tcNo" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="telefonNo" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="rolNo" Type="Int32" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_Kisi1" FromRole="Kisi" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="klinik">
+    <Key>
+      <PropertyRef Name="klinikNo" />
+    </Key>
+    <Property Name="klinikNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="klinikAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="klinikKapasite" Type="Int32" />
+    <NavigationProperty Name="doktor" Relationship="Self.FK_doktor_klinik" FromRole="klinik" ToRole="doktor" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KisiId" Type="Int32" Nullable="false" />
+    <Property Name="RolId" Type="Int32" />
+    <Property Name="KullaniciAd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="doktorNo" Type="Int32" />
+    <NavigationProperty Name="Kisi" Relationship="Self.FK_Kullanici_Kisi1" FromRole="Kullanici" ToRole="Kisi" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK_Kullanici_Rol" FromRole="Kullanici" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="randevu">
+    <Key>
+      <PropertyRef Name="randevuId" />
+    </Key>
+    <Property Name="randevuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="randevuSaat" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="randevuTarih" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="randevuKlinik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hastaNo" Type="Int32" />
+    <Property Name="doktorNo" Type="Int32" />
+    <NavigationProperty Name="doktor" Relationship="Self.FK_randevu_doktor" FromRole="randevu" ToRole="doktor" />
+    <NavigationProperty Name="Hasta" Relationship="Self.FK_randevu_Hasta" FromRole="randevu" ToRole="Hasta" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="RolID" />
+    </Key>
+    <Property Name="RolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RolAd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="RolKod" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_Rol" FromRole="Rol" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="Sonislemhasta">
+    <Key>
+      <PropertyRef Name="hastaSSSNo" />
+    </Key>
+    <Property Name="hastaSSSNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hastaAdss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hastaSoyadss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hastaTcNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hastaSikayetss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hastailacss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hastaislemss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sonSecimHasta">
+    <Key>
+      <PropertyRef Name="ssHastaNo" />
+    </Key>
+    <Property Name="ssHastaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hastaNoS" Type="Int32" Nullable="false" />
+    <Property Name="hastaAdS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hastaSoyadS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="doktorAdS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="doktorNoS" Type="Int32" />
+    <Property Name="hastaSikayetS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_doktor_klinik">
+    <End Role="klinik" Type="Self.klinik" Multiplicity="0..1" />
+    <End Role="doktor" Type="Self.doktor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klinik">
+        <PropertyRef Name="klinikNo" />
+      </Principal>
+      <Dependent Role="doktor">
+        <PropertyRef Name="klinikNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_randevu_doktor">
+    <End Role="doktor" Type="Self.doktor" Multiplicity="0..1" />
+    <End Role="randevu" Type="Self.randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doktor">
+        <PropertyRef Name="doktorNo" />
+      </Principal>
+      <Dependent Role="randevu">
+        <PropertyRef Name="doktorNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_randevu_Hasta">
+    <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1" />
+    <End Role="randevu" Type="Self.randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hasta">
+        <PropertyRef Name="hastaNo" />
+      </Principal>
+      <Dependent Role="randevu">
+        <PropertyRef Name="hastaNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ilac_ilacTuru">
+    <End Role="ilacTuru" Type="Self.ilacTuru" Multiplicity="0..1" />
+    <End Role="ilac" Type="Self.ilac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ilacTuru">
+        <PropertyRef Name="ilacTuruNo" />
+      </Principal>
+      <Dependent Role="ilac">
+        <PropertyRef Name="ilacTuruNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanici_Kisi1">
+    <End Role="Kisi" Type="Self.Kisi" Multiplicity="1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kisi">
+        <PropertyRef Name="kisiId" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="KisiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanici_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="RolID" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GorselEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="doktor" EntityType="Self.doktor" />
+    <EntitySet Name="Hasta" EntityType="Self.Hasta" />
+    <EntitySet Name="ilac" EntityType="Self.ilac" />
+    <EntitySet Name="ilacTuru" EntityType="Self.ilacTuru" />
+    <EntitySet Name="Kisi" EntityType="Self.Kisi" />
+    <EntitySet Name="klinik" EntityType="Self.klinik" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+    <EntitySet Name="randevu" EntityType="Self.randevu" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="Sonislemhasta" EntityType="Self.Sonislemhasta" />
+    <EntitySet Name="sonSecimHasta" EntityType="Self.sonSecimHasta" />
+    <AssociationSet Name="FK_doktor_klinik" Association="Self.FK_doktor_klinik">
+      <End Role="klinik" EntitySet="klinik" />
+      <End Role="doktor" EntitySet="doktor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_randevu_doktor" Association="Self.FK_randevu_doktor">
+      <End Role="doktor" EntitySet="doktor" />
+      <End Role="randevu" EntitySet="randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_randevu_Hasta" Association="Self.FK_randevu_Hasta">
+      <End Role="Hasta" EntitySet="Hasta" />
+      <End Role="randevu" EntitySet="randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ilac_ilacTuru" Association="Self.FK_ilac_ilacTuru">
+      <End Role="ilacTuru" EntitySet="ilacTuru" />
+      <End Role="ilac" EntitySet="ilac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanici_Kisi1" Association="Self.FK_Kullanici_Kisi1">
+      <End Role="Kisi" EntitySet="Kisi" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanici_Rol" Association="Self.FK_Kullanici_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

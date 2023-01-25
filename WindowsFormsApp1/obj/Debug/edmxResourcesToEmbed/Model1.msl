@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GorselModelStoreContainer" CdmEntityContainer="GorselEntities1">
+    <EntitySetMapping Name="doktor">
+      <EntityTypeMapping TypeName="GorselModel.doktor">
+        <MappingFragment StoreEntitySet="doktor">
+          <ScalarProperty Name="doktorNo" ColumnName="doktorNo" />
+          <ScalarProperty Name="doktorAd" ColumnName="doktorAd" />
+          <ScalarProperty Name="doktorSoyAd" ColumnName="doktorSoyAd" />
+          <ScalarProperty Name="doktorTcNO" ColumnName="doktorTcNO" />
+          <ScalarProperty Name="doktorTel" ColumnName="doktorTel" />
+          <ScalarProperty Name="doktorDtarihi" ColumnName="doktorDtarihi" />
+          <ScalarProperty Name="doktorDyeri" ColumnName="doktorDyeri" />
+          <ScalarProperty Name="doktorEmail" ColumnName="doktorEmail" />
+          <ScalarProperty Name="doktorCinsiyet" ColumnName="doktorCinsiyet" />
+          <ScalarProperty Name="klinikNo" ColumnName="klinikNo" />
+          <ScalarProperty Name="klinikAd" ColumnName="klinikAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hasta">
+      <EntityTypeMapping TypeName="GorselModel.Hasta">
+        <MappingFragment StoreEntitySet="Hasta">
+          <ScalarProperty Name="hastaNo" ColumnName="hastaNo" />
+          <ScalarProperty Name="hastaTcNo" ColumnName="hastaTcNo" />
+          <ScalarProperty Name="hastaAdi" ColumnName="hastaAdi" />
+          <ScalarProperty Name="hastoSoyadi" ColumnName="hastoSoyadi" />
+          <ScalarProperty Name="hastaTel" ColumnName="hastaTel" />
+          <ScalarProperty Name="hastaCinsiyet" ColumnName="hastaCinsiyet" />
+          <ScalarProperty Name="hastaDogumYeri" ColumnName="hastaDogumYeri" />
+          <ScalarProperty Name="hastaAnneAdi" ColumnName="hastaAnneAdi" />
+          <ScalarProperty Name="hastaBabaAdi" ColumnName="hastaBabaAdi" />
+          <ScalarProperty Name="hastaAdres" ColumnName="hastaAdres" />
+          <ScalarProperty Name="hastaKanGrubu" ColumnName="hastaKanGrubu" />
+          <ScalarProperty Name="hastaMedeniHali" ColumnName="hastaMedeniHali" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilac">
+      <EntityTypeMapping TypeName="GorselModel.ilac">
+        <MappingFragment StoreEntitySet="ilac">
+          <ScalarProperty Name="ilacNo" ColumnName="ilacNo" />
+          <ScalarProperty Name="ilacAdı" ColumnName="ilacAdı" />
+          <ScalarProperty Name="ilacTuruNo" ColumnName="ilacTuruNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilacTuru">
+      <EntityTypeMapping TypeName="GorselModel.ilacTuru">
+        <MappingFragment StoreEntitySet="ilacTuru">
+          <ScalarProperty Name="ilacTuruNo" ColumnName="ilacTuruNo" />
+          <ScalarProperty Name="ilacTuru1" ColumnName="ilacTuru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kisi">
+      <EntityTypeMapping TypeName="GorselModel.Kisi">
+        <MappingFragment StoreEntitySet="Kisi">
+          <ScalarProperty Name="kisiId" ColumnName="kisiId" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="tcNo" ColumnName="tcNo" />
+          <ScalarProperty Name="telefonNo" ColumnName="telefonNo" />
+          <ScalarProperty Name="rolNo" ColumnName="rolNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="klinik">
+      <EntityTypeMapping TypeName="GorselModel.klinik">
+        <MappingFragment StoreEntitySet="klinik">
+          <ScalarProperty Name="klinikNo" ColumnName="klinikNo" />
+          <ScalarProperty Name="klinikAd" ColumnName="klinikAd" />
+          <ScalarProperty Name="klinikKapasite" ColumnName="klinikKapasite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="GorselModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="RolId" ColumnName="RolId" />
+          <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="doktorNo" ColumnName="doktorNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="randevu">
+      <EntityTypeMapping TypeName="GorselModel.randevu">
+        <MappingFragment StoreEntitySet="randevu">
+          <ScalarProperty Name="randevuId" ColumnName="randevuId" />
+          <ScalarProperty Name="randevuSaat" ColumnName="randevuSaat" />
+          <ScalarProperty Name="randevuTarih" ColumnName="randevuTarih" />
+          <ScalarProperty Name="randevuKlinik" ColumnName="randevuKlinik" />
+          <ScalarProperty Name="hastaNo" ColumnName="hastaNo" />
+          <ScalarProperty Name="doktorNo" ColumnName="doktorNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="GorselModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="RolID" ColumnName="RolID" />
+          <ScalarProperty Name="RolAd" ColumnName="RolAd" />
+          <ScalarProperty Name="RolKod" ColumnName="RolKod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sonislemhasta">
+      <EntityTypeMapping TypeName="GorselModel.Sonislemhasta">
+        <MappingFragment StoreEntitySet="Sonislemhasta">
+          <ScalarProperty Name="hastaSSSNo" ColumnName="hastaSSSNo" />
+          <ScalarProperty Name="hastaAdss" ColumnName="hastaAdss" />
+          <ScalarProperty Name="hastaSoyadss" ColumnName="hastaSoyadss" />
+          <ScalarProperty Name="hastaTcNo" ColumnName="hastaTcNo" />
+          <ScalarProperty Name="hastaSikayetss" ColumnName="hastaSikayetss" />
+          <ScalarProperty Name="hastailacss" ColumnName="hastailacss" />
+          <ScalarProperty Name="hastaislemss" ColumnName="hastaislemss" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sonSecimHasta">
+      <EntityTypeMapping TypeName="GorselModel.sonSecimHasta">
+        <MappingFragment StoreEntitySet="sonSecimHasta">
+          <ScalarProperty Name="ssHastaNo" ColumnName="ssHastaNo" />
+          <ScalarProperty Name="hastaNoS" ColumnName="hastaNoS" />
+          <ScalarProperty Name="hastaAdS" ColumnName="hastaAdS" />
+          <ScalarProperty Name="hastaSoyadS" ColumnName="hastaSoyadS" />
+          <ScalarProperty Name="doktorAdS" ColumnName="doktorAdS" />
+          <ScalarProperty Name="doktorNoS" ColumnName="doktorNoS" />
+          <ScalarProperty Name="hastaSikayetS" ColumnName="hastaSikayetS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
